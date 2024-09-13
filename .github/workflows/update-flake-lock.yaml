@@ -10,13 +10,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          token: ${{secrets.SUBMODULE_DEPLOY_KEY}}
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@main
         with:
+          token: ${{secrets.SUBMODULE_DEPLOY_KEY}}
           pr-title: "Chore: Update flake.lock" # Title of PR to be created
           pr-labels: |                         # Labels to be set on the PR
             dependencies
