@@ -19,7 +19,7 @@ in {
             lib.getExe pkgs.jq
           } '.lastModified'
         }
-        test "$(lastModified "${config.system.autoUpgrade.flake}") - gt "$(lastModified "self")"
+        test "$(lastModified "${config.system.autoUpgrade.flake}")"" - gt "$(lastModified "self")"
       '');
   };
 }
