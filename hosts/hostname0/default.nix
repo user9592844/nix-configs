@@ -6,7 +6,8 @@
     "hosts/common/core"
 
     # Optional configurations
-    "hosts/common/optional/cosmic-desktop.nix"
+    # "hosts/common/optional/cosmic-desktop.nix"
+    "hosts/common/optional/gnome-desktop.nix"
     "hosts/common/optional/nil.nix"
     "hosts/common/optional/nixfmt.nix"
     "hosts/common/optional/vlc.nix"
