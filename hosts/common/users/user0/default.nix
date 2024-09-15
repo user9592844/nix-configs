@@ -3,11 +3,11 @@ let
   ifTheyExist = groups:
     builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
   sopsHashedPasswordFile = lib.optionalString (lib.hasAttr "sops-nix" inputs)
-    config.sops.secrets."${configVars.username}_passwd".path;
+    config.sops.secrets."${configVars.username}/password".path;
 
   fullUserConfig = lib.optionalAttrs (!configVars.isMinimal) {
     users.users.${configVars.username} = {
-      # hashedPasswordFile = sopsHashedPasswordFile;
+      hashedPasswordFile = sopsHashedPasswordFile;
       packages = [ pkgs.home-manager ];
     };
 

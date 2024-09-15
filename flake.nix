@@ -14,10 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Commented out temporarily due to issues with freeze during compilation
+    # nixos-cosmic = {
+    #   url = "github:lilyinstarlight/nixos-cosmic";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     nix-secrets = {
       url =
@@ -47,16 +48,18 @@
           inherit specialArgs;
           modules = [
             home-manager.nixosModules.home-manager
-            { home-manager.extraSpecialArgs = specialArgs; }
             {
-              nix.settings = {
-                substituters = [ "https://cosmic.cachix.org" ];
-                trusted-public-keys = [
-                  "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-                ];
-              };
+              home-manager.extraSpecialArgs = specialArgs;
             }
-            nixos-cosmic.nixosModules.default
+            # {
+            #   nix.settings = {
+            #     substituters = [ "https://cosmic.cachix.org" ];
+            #     trusted-public-keys = [
+            #       "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+            #     ];
+            #   };
+            # }
+            # nixos-cosmic.nixosModules.default
             ./hosts/hostname0
           ];
         };

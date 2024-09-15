@@ -8,7 +8,7 @@
     # Optional configs
     common/optional/browsers/firefox.nix
     common/optional/dev/vscode.nix
-    # common/optional/sops.nix
+    common/optional/sops.nix
   ];
 
   home = {

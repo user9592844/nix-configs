@@ -3,6 +3,6 @@
   handle = "user9592844";
   gitHubEmail = "139545179+user9592844@users.noreply.github.com";
   gitLabEmail = "";
-  persistFolder = "/persist";
+  persistFolder = "/nix/persist";
   isMinimal = false;
 }

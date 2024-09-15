@@ -3,6 +3,7 @@ let
   secretsDirectory = builtins.toString inputs.nix-secrets;
   secretsFile = "${secretsDirectory}/secrets.yaml";
 
+  persistFolder = configVars.persistFolder;
   homeDirectory = if pkgs.stdenv.isLinux then
     "/home/${configVars.username}"
   else
@@ -14,7 +15,11 @@ in {
     defaultSopsFile = "${secretsFile}";
     validateSopsFiles = false;
 
-    age.keyFile = "${homeDirectory}/.config/sops/age/key.txt";
+    age = {
+      sshKeyPaths = [
+        "${persistFolder}/etc/ssh/ssh_${config.networking.hostName}_ed25519"
+      ];
+    };
 
     secrets = {
       "user_age_keys/${configVars.username}_${config.networking.hostName}" = {
@@ -23,11 +28,11 @@ in {
         path = "${homeDirectory}/.config/sops/age/keys.txt";
       };
 
-      "${configVars.username}_passwd".neededForUsers = true;
+      "${configVars.username}/password".neededForUsers = true;
 
-      # "yubico/u2f_keys" = {
-      #   path = "/home/${configVars.username}/.config/Yubico/u2f_keys";
-      # };
+      "yubico/u2f_keys" = {
+        path = "/home/${configVars.username}/.config/Yubico/u2f_keys";
+      };
     };
   };
 
