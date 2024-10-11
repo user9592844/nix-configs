@@ -1,9 +1,9 @@
 { pkgs, lib, config, ... }:
 
 {
-  programs.starship = {
+  programs.zellij = {
     enable = true;
-    # enableZshIntegration = true;
+    enableZshIntegration = true;
     enableFishIntegration = true;
   };
 }

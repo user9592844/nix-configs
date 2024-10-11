@@ -27,11 +27,11 @@ in {
       extraGroups = [ "wheel" ]
         ++ ifTheyExist [ "audio" "video" "docker" "git" "networkmanager" ];
 
-      shell = pkgs.zsh; # default shell
+      shell = pkgs.fish; # default shell
     };
 
     # Ensure these are always enabled
-    programs.zsh.enable = true;
+    programs.fish.enable = true;
     programs.git.enable = true;
   };
 }
