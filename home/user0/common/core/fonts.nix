@@ -2,10 +2,10 @@
 
 {
   fonts.fontconfig.enable = true;
-  home.packages = [
-    pkgs.fira-code
-    pkgs.fira-mono
-    pkgs.fira-code-symbols
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
+  home.packages = with pkgs; [
+    fira-code
+    fira-mono
+    fira-code-symbols
+    nerd-fonts.fira-code
   ];
 }
