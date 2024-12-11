@@ -21,22 +21,22 @@
 
       font = {
         size = 13;
-        bold = {
-          family = "FiraCode Nerd Font";
-          style = "Bold";
-        };
-        bold_italic = {
-          family = "FiraCode Nerd Font";
-          style = "Bold Italic";
-        };
-        italic = {
-          family = "FiraCode Nerd Font";
-          style = "Italic";
-        };
-        normal = {
-          family = "FiraCode Nerd Font";
-          style = "Regular";
-        };
+        # bold = {
+        #   family = "FiraCode Nerd Font";
+        #   style = "Bold";
+        # };
+        # bold_italic = {
+        #   family = "FiraCode Nerd Font";
+        #   style = "Bold Italic";
+        # };
+        # italic = {
+        #   family = "FiraCode Nerd Font";
+        #   style = "Italic";
+        # };
+        # normal = {
+        #   family = "FiraCode Nerd Font";
+        #   style = "Regular";
+        # };
       };
 
       keyboard = {
